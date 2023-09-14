@@ -5,16 +5,19 @@ import processing.core.PApplet;
 public class World {
 	Platform p;
 //	Background background; // unsure if we need background yet if our background is a solid color
-	//DoodleJumper dj;
+	DoodleJumper dj;
+	
+	//I tried but idk how all the draw stuff works in eclipse
 	
 	
 	public PApplet draw(PApplet c) {
         c.background(255);
         c.text("NoodleHump!", 20, 20);
         c.fill(0, 0, 255);
-        c.square((int)this.x, (int)this.y, 15);
+//        c.circle((int)this.x, (int)this.y, 15);
         return c;
     }	
+	
 }
 
 
