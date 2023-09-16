@@ -20,6 +20,8 @@ public class World {
 //        c.fill(135, 135, 0);
 //        c.circle(100, 100, 15);
 //        p.draw(c);
+//        dj.collide(p);
+        dj.update(p);
         dj.draw(c);
         p.draw(c);
         return c;

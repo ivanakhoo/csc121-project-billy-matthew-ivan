@@ -2,14 +2,14 @@ import processing.core.PApplet;
 
 /** Represents a platform that the DJ can jump off of*/
 public class Platform {
-	Posn p; // position of the center-point of the platform.
-	int length;
+	Posn p; // position of the top-left of the platform.
+	int width;
 	int height;
 	String color;
 	
-	public Platform(Posn p, int length, int height, String color) {
+	public Platform(Posn p, int width, int height, String color) {
 		this.p = p;
-		this.length = length;
+		this.width = width;
 		this.height = height;
 		this.color = color;
 	}
@@ -33,7 +33,7 @@ public class Platform {
 //	}
 	
 	public PApplet draw(PApplet c2) {
-        c2.rect((float)this.p.x, (float)this.p.y, (float)this.length, (float)this.height);
+        c2.rect((float)this.p.x, (float)this.p.y, (float)this.width, (float)this.height);
         return c2;
     }
 	

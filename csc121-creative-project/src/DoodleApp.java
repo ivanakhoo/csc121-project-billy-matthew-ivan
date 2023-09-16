@@ -19,7 +19,7 @@ public class DoodleApp extends PApplet {
     
     public void draw() {
 //        w = w.update();
-    	dj = dj.update();
+    	dj = dj.update(p);
 //    	p = p.update();
         w.draw(this, dj, p);
     }
