@@ -26,13 +26,22 @@ public class DoodleJumper {
 		this.yVelocity = yVelocity;
 		this.xVelocity = xVelocity;
 
-		this.xSpeed = 0.1;
+		this.xSpeed = 1;
 
 		this.width = 20;
 		this.height = 30;
 	}
 
 	public DoodleJumper update(Platform plat) {
+		/** OK so basically. This isn't how collision is supposed to work.
+		 * BUT I think this is actually really cool and maybe we could make our game around it. */
+		
+		// Collision
+		if (this.p.y <= plat.p.y + plat.height && this.p.y + this.height >= plat.p.y && this.p.x <= plat.p.x + plat.width && this.p.x + this.width >= plat.p.x){
+			this.yVelocity = 0;
+		}
+		
+		// Move left and right
 		if(this.isMovingRight || this.isMovingLeft) {
 			if(this.isMovingRight && !this.isMovingLeft) {
 				this.xVelocity = this.xSpeed;
@@ -43,11 +52,6 @@ public class DoodleJumper {
 			}
 		} else {
 			this.xVelocity = 0;
-		}
-		
-		// Collision
-		if (this.p.y <= plat.p.y + plat.height && this.p.y + this.height >= plat.p.y && this.p.x <= plat.p.x + plat.width && this.p.x + this.width >= plat.p.x){
-			this.yVelocity = 0;
 		}
 		
 		// Update position
@@ -69,6 +73,9 @@ public class DoodleJumper {
 		}
 		if(kev.getKeyCode() == PApplet.RIGHT) {
 			this.isMovingRight = true;
+		}
+		if(kev.getKey() == ' ') {
+			this.yVelocity = -2;
 		}
 		
 ////		while(kev.getKeyCode() == 37 && kev.getKeyCode() == 39) {
