@@ -17,6 +17,14 @@ public class DoodleApp extends PApplet {
         w = new World(dj, p);
     }
     
+    public void keyPressed(KeyEvent kev) {
+        dj = dj.keyPressed(kev);
+    }
+    
+    public void keyReleased(KeyEvent kev) {
+    	dj = dj.keyReleased(kev);
+    }
+    
     public void draw() {
 //        w = w.update();
     	dj = dj.update(p);
@@ -26,10 +34,6 @@ public class DoodleApp extends PApplet {
     
     public void mousePressed(MouseEvent mev) {
 //        w = w.mousePressed(mev);
-    }
-    
-    public void keyPressed(KeyEvent kev) {
-        // w = w.keyPressed(kev);
     }
 
     public static void main(String[] args) {

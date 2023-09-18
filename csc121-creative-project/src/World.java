@@ -1,4 +1,6 @@
 import processing.core.PApplet;
+import processing.event.KeyEvent;
+import processing.event.MouseEvent;
 
 /** Matthew Peterson, Billy Blood, and Ivan Khoo
  * Represents the World and the objects in it*/
@@ -26,7 +28,10 @@ public class World {
         p.draw(c);
         return c;
     }
-
+	
+//	public CircleWorld keyPressed(KeyEvent kev) {
+//        return new World(kev.getX(), kev.getY());
+//    }
 //	public World update() {
 //		return new World(this.dj.update(), this.p);
 //	}

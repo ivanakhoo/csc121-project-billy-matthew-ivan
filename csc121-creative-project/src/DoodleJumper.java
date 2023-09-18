@@ -1,4 +1,5 @@
 import processing.core.PApplet;
+import processing.event.KeyEvent;
 
 /** Represents the DoodleJumper!*/
 public class DoodleJumper {
@@ -25,7 +26,7 @@ public class DoodleJumper {
 		this.yVelocity = yVelocity;
 		this.xVelocity = xVelocity;
 
-		this.xSpeed = 5;
+		this.xSpeed = 0.1;
 
 		this.width = 20;
 		this.height = 30;
@@ -37,14 +38,19 @@ public class DoodleJumper {
 				this.xVelocity = this.xSpeed;
 			} else if(this.isMovingLeft && !this.isMovingRight) {
 				this.xVelocity = -this.xSpeed;
+			} else {
+				this.xVelocity = 0;
 			}
+		} else {
+			this.xVelocity = 0;
 		}
 		
-//		this.collide(plat);
+		// Collision
 		if (this.p.y <= plat.p.y + plat.height && this.p.y + this.height >= plat.p.y && this.p.x <= plat.p.x + plat.width && this.p.x + this.width >= plat.p.x){
 			this.yVelocity = 0;
 		}
-
+		
+		// Update position
 		this.p.x += this.xVelocity;
 		this.p.y += this.yVelocity;
 
@@ -56,15 +62,73 @@ public class DoodleJumper {
 		c1.rect((float)this.p.x, (float)this.p.y, (float)this.width, (float)this.height);
 		return c1;
 	}
-
-	public DoodleJumper collide(Platform plat) {
-		if (this.p.y <= plat.p.y + plat.height && this.p.y + this.height >= plat.p.y && this.p.x <= plat.p.x + plat.width && this.p.x + this.width >= plat.p.x){
-			return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, 0, this.xVelocity);
-		} else {
-			return this;
+	
+	public DoodleJumper keyPressed(KeyEvent kev) {
+		if(kev.getKeyCode() == PApplet.LEFT) {
+			this.isMovingLeft = true;
 		}
+		if(kev.getKeyCode() == PApplet.RIGHT) {
+			this.isMovingRight = true;
+		}
+		
+////		while(kev.getKeyCode() == 37 && kev.getKeyCode() == 39) {
+////			this.xVelocity = 0;
+////		}
+//		
+////		if(kev.getKeyCode() == 37) {
+////			this.isMovingLeft = true;
+////		} 
+//		
+//		while(kev.getKeyCode() == 37 && kev.getKeyCode() != 39) {
+//	        this.xVelocity = -this.xSpeed;
+//		} 
+//		
+////		else if(kev.getKeyCode() == 37){
+////			this.isMovingLeft = false;
+////		}
+//		
+//		while(kev.getKeyCode() == 39 && kev.getKeyCode() != 37) {
+//			this.xVelocity = this.xSpeed;
+//		} 
+//		
+////		if(kev.getKeyCode() == 39) {
+////			this.isMovingRight = true;
+////		} 
+////		else {
+////			this.isMovingRight = false;
+////		}
+		
+		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity);
+    }
+	
+	public DoodleJumper keyReleased(KeyEvent kev) {
+		if(kev.getKeyCode() == PApplet.LEFT) {
+			this.isMovingLeft = false;
+		}
+		if(kev.getKeyCode() == PApplet.RIGHT) {
+			this.isMovingRight = false;
+		}
+		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity);
 	}
+	
+//	public DoodleJumper keyReleased(KeyEvent kev) {
+//		if(kev.getKeyCode() == 37) {
+//	        this.isMovingLeft = false;
+//		}
+//		if(kev.getKeyCode() == 39) {
+//			this.isMovingRight = false;
+//		}
+//		
+//		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity);
+//    }
+
+//	public DoodleJumper collide(Platform plat) {
+//		if (this.p.y <= plat.p.y + plat.height && this.p.y + this.height >= plat.p.y && this.p.x <= plat.p.x + plat.width && this.p.x + this.width >= plat.p.x){
+//			return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, 0, this.xVelocity);
+//		} else {
+//			return this;
+//		}
+//	}
 
 
 }
-// hello
