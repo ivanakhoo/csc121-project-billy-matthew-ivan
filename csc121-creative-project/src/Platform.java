@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import processing.core.PApplet;
 
 /** Represents a platform that the DJ can jump off of*/
@@ -5,9 +7,9 @@ public class Platform {
 	Posn p; // position of the top-left of the platform.
 	int width;
 	int height;
-	String color;
+	Color color;
 	
-	public Platform(Posn p, int width, int height, String color) {
+	public Platform(Posn p, int width, int height, Color color) {
 		this.p = p;
 		this.width = width;
 		this.height = height;
@@ -33,6 +35,7 @@ public class Platform {
 //	}
 	
 	public PApplet draw(PApplet c2) {
+		c2.fill(this.color.getRGB());
         c2.rect((float)this.p.x, (float)this.p.y, (float)this.width, (float)this.height);
         return c2;
     }

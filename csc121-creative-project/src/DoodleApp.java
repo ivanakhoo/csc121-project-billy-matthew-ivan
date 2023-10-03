@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import processing.core.*;
 import processing.event.*;
 
@@ -12,8 +14,8 @@ public class DoodleApp extends PApplet {
     }
     
     public void setup() {
-        DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0);
-        Platform p = new Platform(new Posn(100, 200), 100, 20, "red");
+        DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (125, 125, 0));
+        Platform p = new Platform(new Posn(100, 200), 100, 20, new Color(0, 255, 0));
         w = new World(dj, p);
     }
     
