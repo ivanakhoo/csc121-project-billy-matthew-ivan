@@ -10,13 +10,17 @@ public class DoodleApp extends PApplet {
     World w;
     
     public void settings() {
-        this.size(400, 400);
+        this.size(800, 800);
     }
     
     public void setup() {
-        DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (125, 125, 0));
-        Platform p = new Platform(new Posn(100, 200), 100, 20, new Color(0, 255, 0));
-        w = new World(dj, p);
+        DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116));
+        Platform p1 = new Platform(new Posn(100, 200), 100, 20, new Color(65, 206, 93));
+        Platform p2 = new Platform(new Posn(250, 300), 100, 20, new Color(65, 206, 93));
+        Platform p3 = new Platform(new Posn(500, 100), 100, 20, new Color(65, 206, 93));
+//        Platform[] lvl1 = {p1, p2, p3};
+        Stage stage1 = new Stage(new Color(42), new Platform[]{p1, p2, p3});
+        w = new World(dj, stage1);
     }
     
     public void keyPressed(KeyEvent kev) {

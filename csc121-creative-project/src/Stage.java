@@ -3,15 +3,21 @@ import java.awt.Color;
 
 import processing.core.PApplet;
 public class Stage {
+	Color bkg;
 	Platform[] platforms;
-	Color background;
 
 	public Stage(Color bkg, Platform[] platforms) {
-//		this.platforms = new Platform[3];
-		
+		this.bkg = bkg;
 		this.platforms = platforms;
-		//		new Platform(new Posn(200, 200), 10, 10,  new Color(255, 20, 25));
 		
+	}
+	
+	public PApplet draw(PApplet c) {
+		for(int i = 0; i < platforms.length; i++) {
+			platforms[i].draw(c);
+		}
+		
+		return c;
 	}
 	
 }
