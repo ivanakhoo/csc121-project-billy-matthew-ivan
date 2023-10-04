@@ -17,8 +17,8 @@ public class World {
     public PApplet draw(PApplet c) {
         c.background(this.stage.bkg.getRGB());
         //        c.text("NoodleHump!", 20, 20);
-        dj.collide(stage);
-        dj.update(stage);
+//        dj.collide(stage);
+//        dj.update();
         dj.draw(c);
         stage.draw(c);
         return c;
@@ -33,7 +33,7 @@ public class World {
     }
 
     public World update() {
-        return new World(this.dj.update(this.stage), this.stage);
+        return new World(this.dj.update(stage), this.stage);
     }
 
 

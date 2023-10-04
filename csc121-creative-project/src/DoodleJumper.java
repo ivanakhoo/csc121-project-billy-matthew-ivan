@@ -30,7 +30,7 @@ public class DoodleJumper {
 		this.xVelocity = xVelocity;
 		this.color = color;
 
-		this.xSpeed = 1;
+		this.xSpeed = 2;
 
 		this.width = 20;
 		this.height = 30;
@@ -46,6 +46,7 @@ public class DoodleJumper {
 //		}
 //		this.yVelocity = collide(plat);
 //		this.yVelocity = collide(stage);
+		this.collide(stage);
 		
 		// Move left and right
 		if(this.isMovingRight || this.isMovingLeft) {
@@ -91,7 +92,7 @@ public class DoodleJumper {
 		
 		// Jump
 		if(kev.getKey() == ' ') {
-			this.yVelocity = -2;
+			this.yVelocity = -3;
 		}
 		
 		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color);
