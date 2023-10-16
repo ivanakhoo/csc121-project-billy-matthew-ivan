@@ -19,6 +19,8 @@ public class DoodleJumper {
 	// For hitbox - unchanging
 	int width;
 	int height;
+	
+	int jumpvelo;
 
 	public DoodleJumper(Posn p, boolean isMovingLeft, boolean isMovingRight, double yAcceleration, double yVelocity, double xVelocity, Color color) {
 		//		super();  // I have no idea what this is - it generated with the constructor
@@ -34,6 +36,9 @@ public class DoodleJumper {
 
 		this.width = 20;
 		this.height = 30;
+		
+		this.jumpvelo = -3;
+		
 	}
 	
 	
@@ -92,7 +97,7 @@ public class DoodleJumper {
 		
 		// Jump
 		if(kev.getKey() == ' ') {
-			this.yVelocity = -3;
+			this.yVelocity = jumpvelo;
 		}
 		
 		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color);
