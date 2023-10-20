@@ -33,7 +33,8 @@ public class World {
     }
 
     public World update() {
-        return new World(this.dj.update(stage), this.stage);
+    	this.stage.update();
+        return new World(this.dj.update(this.stage), this.stage);
     }
 
 

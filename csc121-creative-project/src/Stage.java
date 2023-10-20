@@ -1,15 +1,18 @@
-/** Represents a Stage of platforms*/
+/** 
+ * Represents a Stage with an array of platforms
+ */
 import java.awt.Color;
 
 import processing.core.PApplet;
 public class Stage {
 	Color bkg;
 	Platform[] platforms;
+	int speed;
 
-	public Stage(Color bkg, Platform[] platforms) {
+	public Stage(Color bkg, Platform[] platforms, int speed) {
 		this.bkg = bkg;
 		this.platforms = platforms;
-		
+		this.speed = speed;
 	}
 	
 	public PApplet draw(PApplet c) {
@@ -20,6 +23,14 @@ public class Stage {
 		return c;
 	}
 	
+	// Updates the position of all the platforms in the stage
+	public Stage update() {
+		for(int i = 0; i < platforms.length; i++) {
+			platforms[i].update(this.speed);
+		}
+		return new Stage(this.bkg, this.platforms, this.speed);
+	}
+
 }
 
 
