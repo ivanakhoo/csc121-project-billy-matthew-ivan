@@ -141,5 +141,16 @@ public class DoodleJumper {
 		}
 	}
 
+		public boolean gameOver(DoodleJumper dj) {
+			int stageWidth = 1;  //width and height of the stage (need to change later)
+			int stageHeight = 1;
+			
+			if(dj.p.x <=stageWidth) {
+				return true;
+			}else if(dj.p.y >= stageHeight) {
+				return true;
+			}else 
+				return false;
+		}
 
 }
