@@ -59,7 +59,14 @@ public class PlayWorld implements IWorld {
 
     
     public static PlayWorld buildStandard() {
-    	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3);
+    	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3, -3);
+    	// LOL what if we made different doodlejumpers with different abilities
+    	DoodleJumper ivan = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (150, 150, 0), 3, -4);
+    	DoodleJumper matthew = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (255), 3, -5);
+    	DoodleJumper billy = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (255), 3, -4);
+    	DoodleJumper sean = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (0), 3, -6);
+    	
+    	
         Platform p1 = new Platform(new Posn(100, 200), 100, 20, new Color(65, 206, 93));
         Platform p2 = new Platform(new Posn(250, 300), 100, 20, new Color(65, 206, 93));
         Platform p3 = new Platform(new Posn(500, 100), 100, 20, new Color(65, 206, 93));

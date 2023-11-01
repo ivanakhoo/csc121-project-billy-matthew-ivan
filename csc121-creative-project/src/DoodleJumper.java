@@ -23,7 +23,7 @@ public class DoodleJumper {
 	int jumpvelo;
 	int jumps;
 
-	public DoodleJumper(Posn p, boolean isMovingLeft, boolean isMovingRight, double yAcceleration, double yVelocity, double xVelocity, Color color, int jumps) {
+	public DoodleJumper(Posn p, boolean isMovingLeft, boolean isMovingRight, double yAcceleration, double yVelocity, double xVelocity, Color color, int jumps, int jumpvelo) {
 		//		super();  // I have no idea what this is - it generated with the constructor
 		this.p = p;
 		this.isMovingLeft = isMovingLeft;
@@ -38,7 +38,7 @@ public class DoodleJumper {
 		this.width = 20;
 		this.height = 30;
 		
-		this.jumpvelo = -3;
+		this.jumpvelo = jumpvelo;
 		
 		this.jumps = jumps;
 		
@@ -74,7 +74,7 @@ public class DoodleJumper {
 		this.p.y += this.yVelocity;
 
 
-		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity + this.yAcceleration, this.xVelocity, this.color, this.jumps);
+		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity + this.yAcceleration, this.xVelocity, this.color, this.jumps, this.jumpvelo);
 	}
 	
 	
@@ -104,7 +104,7 @@ public class DoodleJumper {
 			this.jumps -= 1;
 		}
 		
-		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color, this.jumps);
+		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color, this.jumps, this.jumpvelo);
     }
 	
 	
@@ -116,7 +116,7 @@ public class DoodleJumper {
 		if(kev.getKeyCode() == PApplet.RIGHT) {
 			this.isMovingRight = false;
 		}
-		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color, this.jumps);
+		return new DoodleJumper(this.p, this.isMovingLeft, this.isMovingRight, this.yAcceleration, this.yVelocity, this.xVelocity, this.color, this.jumps, this.jumpvelo);
 	}
 
 	
