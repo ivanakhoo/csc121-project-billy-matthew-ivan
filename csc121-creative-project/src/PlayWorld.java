@@ -26,26 +26,36 @@ public class PlayWorld implements IWorld {
         dj.draw(c);
         stage.draw(c);
         score.draw(c);
+        
+       // c.fill(0, 0, 255, 100);  // alpha = transparency
+       // c.rect(0, 0, 800, 800);
         return c;
     }
 
+    // Need to implement an else if case to send to PauseWorld
     public IWorld keyPressed(KeyEvent kev) {
-    	if (kev.getKey() == 'q') {
+    	if (kev.getKey() == 'r') {
     		return new StartWorld();
+    	//} else if (kev.getKey() == 'p') {
+    	//	return new PauseWorld();
     	} else {
     		return new PlayWorld(this.dj.keyPressed(kev), this.stage, this.score);
     	}
     }
+    
 
     public IWorld keyReleased(KeyEvent kev) {
         return new PlayWorld(this.dj.keyReleased(kev), this.stage, this.score);
     }
 
     public IWorld update() {
-    	this.stage.update();
-        return new PlayWorld(this.dj.update(this.stage), this.stage, this.score);
+    	if (this.dj.gameOver()) {
+    		 return new GameOverWorld();
+    	} else {
+    		this.stage.update();
+    		return new PlayWorld(this.dj.update(this.stage), this.stage, this.score.update());
+    	}
     }
-
 
     
     public static PlayWorld buildStandard() {
@@ -54,17 +64,16 @@ public class PlayWorld implements IWorld {
         Platform p2 = new Platform(new Posn(250, 300), 100, 20, new Color(65, 206, 93));
         Platform p3 = new Platform(new Posn(500, 100), 100, 20, new Color(65, 206, 93));
         
-        Platform p4 = new Platform(new Posn(100, 100), 100, 20, new Color(65, 206, 93));
-        Platform p5 = new Platform(new Posn(250, 400), 100, 20, new Color(65, 206, 93));
-        Platform p6 = new Platform(new Posn(500, 300), 100, 20, new Color(65, 206, 93));
-        Platform p7 = new Platform(new Posn(750, 200), 100, 20, new Color(65, 206, 93));
-        Platform p8 = new Platform(new Posn(800, 100), 100, 20, new Color(65, 206, 93));
+        Platform p4 = new Platform(new Posn(300, 400), 100, 20, new Color(65, 206, 93));
+        Platform p5 = new Platform(new Posn(800, 300), 100, 20, new Color(65, 206, 93));
+        Platform p6 = new Platform(new Posn(1100, 200), 100, 20, new Color(65, 206, 93));
+        Platform p7 = new Platform(new Posn(1400, 500), 100, 20, new Color(65, 206, 93));
 //        Platform[] lvl1 = {p1, p2, p3};
         Stage stage1 = new Stage(new Color(42), new Platform[]{p1, p2, p3}, -1);
-        Stage stage2 = new Stage(new Color(42), new Platform[] {p4, p5, p6, p7, p8}, -2);
+        Stage stage2 = new Stage(new Color(42), new Platform[] {p1, p4, p5, p6, p7}, -2);
         
-        Score startscore = new Score(0, "Score: " + 0);
-        return new PlayWorld(dj, stage1, startscore);
+        Score startscore = new Score(0);
+        return new PlayWorld(dj, stage2, startscore);
     }
 
 }

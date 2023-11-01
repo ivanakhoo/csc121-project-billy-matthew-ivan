@@ -8,9 +8,13 @@ import processing.event.*;
  */
 public class DoodleApp extends PApplet {
 	IWorld w;
+	
+	//
+	public static final int WIDTH = 800;
+	public static final int HEIGHT = 800;
     
     public void settings() {
-        this.size(800, 800);
+        this.size(WIDTH, HEIGHT);
     }
     
     public void setup() {

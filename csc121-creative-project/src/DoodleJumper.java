@@ -138,7 +138,7 @@ public class DoodleJumper {
 		for(int i = 0; i < stage.platforms.length; i++) {
 			if(platformCollide(stage.platforms[i])) {
 //				return 0;
-				this.yVelocity = 0;
+				this.yVelocity = -3;
 				this.jumps = 3;
 			} else {
 //				return this.yVelocity;
@@ -146,13 +146,14 @@ public class DoodleJumper {
 		}
 	}
 
-		public boolean gameOver(DoodleJumper dj) {
-			int stageWidth = 1;  //width and height of the stage (need to change later)
-			int stageHeight = 1;
+		public boolean gameOver() {
+			int stageWidth = DoodleApp.WIDTH;  //width and height of the stage (need to change later)
+			int stageHeight = DoodleApp.HEIGHT;
 			
-			if(dj.p.x <=stageWidth) {
+			if(this.p.x <=0) {
 				return true;
-			}else if(dj.p.y >= stageHeight) {
+			}else
+			if(this.p.y >= stageHeight) {
 				return true;
 			}else 
 				return false;
