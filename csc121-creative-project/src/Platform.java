@@ -41,7 +41,7 @@ public class Platform {
     }
 	
 	// Updates the platform's position
-	public Platform update(int speed) {
+	public Platform update(double speed) {
 		this.p.x += speed;
 		return new Platform(this.p, this.width, this.height, this.color);
 	}

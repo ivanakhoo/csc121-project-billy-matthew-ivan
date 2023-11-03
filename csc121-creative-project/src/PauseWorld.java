@@ -25,9 +25,9 @@ public class PauseWorld implements IWorld {
 	@Override
 	public IWorld keyPressed(KeyEvent kev) {
 		if (kev.getKey() == ' ') {
-			return PlayWorld.buildStandard(); // need to find a way to pause game and reenter.
+			return PlayWorld.buildLevel1(); // need to find a way to pause game and reenter.
 		} else if (kev.getKey() == 'r') {
-			return PlayWorld.buildStandard(); 
+			return PlayWorld.buildLevel1(); 
 		} else if (kev.getKey() == 'q') {
 			return new StartWorld(); 
 		} else {

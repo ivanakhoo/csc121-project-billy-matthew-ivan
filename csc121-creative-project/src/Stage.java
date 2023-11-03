@@ -7,9 +7,9 @@ import processing.core.PApplet;
 public class Stage {
 	Color bkg;
 	Platform[] platforms;
-	int speed;
+	double speed;
 
-	public Stage(Color bkg, Platform[] platforms, int speed) {
+	public Stage(Color bkg, Platform[] platforms, double speed) {
 		this.bkg = bkg;
 		this.platforms = platforms;
 		this.speed = speed;

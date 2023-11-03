@@ -10,10 +10,12 @@ public class StartWorld implements IWorld {
 		c.background(0, 150, 200);
 		c.fill(0, 255, 0);
 		c.textSize(60);
-		c.text("DoodleJumper", 230, 310);
+		c.text("DoodleJumper", 220, 310);
 		c.fill(0);
-		c.textSize(30);
-		c.text("Press space to start", 290, 400);
+		c.textSize(20);
+		c.text("Press 1 for Easy Mode", 295, 400);
+		c.text("Press 2 for Medium Mode", 280, 450);
+		c.text("Press 3 for Difficult Mode", 280, 500);
 		return c;
 	}
 
@@ -25,8 +27,12 @@ public class StartWorld implements IWorld {
 
 	@Override
 	public IWorld keyPressed(KeyEvent kev) {
-		if (kev.getKey() == ' ') {
-			return PlayWorld.buildStandard();
+		if (kev.getKey() == '1') {
+			return PlayWorld.buildLevel1();
+		} else if (kev.getKey() == '2' ) {
+			return PlayWorld.buildLevel2();
+		} else if (kev.getKey() == '3' ) {
+			return PlayWorld.buildLevel3();
 		} else {
 			return this;
 		}

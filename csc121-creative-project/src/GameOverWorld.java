@@ -24,7 +24,7 @@ public class GameOverWorld implements IWorld {
 	@Override
 	public IWorld keyPressed(KeyEvent kev) {
 		if (kev.getKey() == ' ') {
-			return PlayWorld.buildStandard();
+			return PlayWorld.buildLevel1();
 		} else if (kev.getKey() == 'r') {
 			return new StartWorld(); 
 		} else {
