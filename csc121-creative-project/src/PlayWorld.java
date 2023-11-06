@@ -112,7 +112,7 @@ public class PlayWorld implements IWorld {
     	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3, -3);
     	// LOL what if we made different doodlejumpers with different abilities
     	DoodleJumper ivan = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (150, 150, 0), 3, -4);
-    	DoodleJumper matthew = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (255), 3, -5);
+    	DoodleJumper matthew = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (255, 255, 255), 3, -5);
     	DoodleJumper billy = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (255), 3, -4);
     	DoodleJumper sean = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (0), 3, -6);
     	
