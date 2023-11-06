@@ -25,7 +25,7 @@ public class PlayWorld implements IWorld {
 //        dj.update();
         dj.draw(c);
         stage.draw(c);
-        score.draw(c);
+        score.draw(c, dj);
         
        // c.fill(0, 0, 255, 100);  // alpha = transparency
        // c.rect(0, 0, 800, 800);
@@ -36,8 +36,8 @@ public class PlayWorld implements IWorld {
     public IWorld keyPressed(KeyEvent kev) {
     	if (kev.getKey() == 'r') {
     		return new StartWorld();
-    	//} else if (kev.getKey() == 'p') {
-    	//	return new PauseWorld();
+    	} else if (kev.getKey() == 'p') {
+    		return new PauseWorld(this);
     	} else {
     		return new PlayWorld(this.dj.keyPressed(kev), this.stage, this.score);
     	}
@@ -137,7 +137,7 @@ public class PlayWorld implements IWorld {
         Stage stage3 = new Stage(new Color(120, 0, 0), new Platform[] {p1, p4, p5, p6, p7, p8, p9, p10, p11, p12}, -2.5);
         
         Score startscore = new Score(0);
-        return new PlayWorld(dj, stage3, startscore);
+        return new PlayWorld(billy, stage3, startscore);
     }
 
 }
