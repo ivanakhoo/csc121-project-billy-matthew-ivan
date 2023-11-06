@@ -11,7 +11,7 @@ public class PauseWorld implements IWorld {
 
 	@Override
 	public PApplet draw(PApplet c) {
-		c.background(0, 200, 100);
+		c.background(0, 100, 200);
 		
 		// this.paused.draw(c);
 		
