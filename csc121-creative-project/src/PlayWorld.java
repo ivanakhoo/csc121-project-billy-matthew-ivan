@@ -139,6 +139,13 @@ public class PlayWorld implements IWorld {
         Score startscore = new Score(0);
         return new PlayWorld(billy, stage3, startscore);
     }
+    
+    public Stage getStage() {
+    	return this.stage;
+    }
+    public Score getScore() {
+    	return this.score;
+    }
 
 }
 
