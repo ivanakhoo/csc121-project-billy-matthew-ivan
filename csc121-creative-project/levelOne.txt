@@ -1,4 +1,4 @@
-// Stage Data
+// Stage Data for Level One
 
 12 // number of platforms
 
