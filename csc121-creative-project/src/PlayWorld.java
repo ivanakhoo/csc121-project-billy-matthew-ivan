@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import processing.core.PApplet;
 import processing.event.KeyEvent;
@@ -56,9 +59,57 @@ public class PlayWorld implements IWorld {
     		return new PlayWorld(this.dj.update(this.stage), this.stage, this.score.update());
     	}
     }
+    
+    
+    private static Platform[] readAllPlatforms(Scanner sc) {
+    	int platformCount = sc.nextInt();
+		Platform[] platforms = new Platform[platformCount];
+		for (int i = 0; i < platformCount; i++) {
+			int x = sc.nextInt();
+			int y = sc.nextInt();
+			int r = sc.nextInt();
+			int g = sc.nextInt();
+			int b = sc.nextInt();
+			Platform p = new Platform(new Posn(x, y), 100, 20, new Color(r, g, b));
+			platforms[i] = p;
+		}
+		
+		return platforms;
+    }
+    
+    public static PlayWorld buildLevel(int level, String username) {
+		try {
+			
+			// TODO:   open a     "user-" + username + ".txt"  file and read user data from it to create the DoodleJumper.
+			//   make a new file if they're not already a user
+	    	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3, -3);
+
+	    	String filename = "level" + level + ".txt";
+			Scanner sc = new Scanner(new File(filename));
+			
+			Platform[] allPlatforms = readAllPlatforms(sc);
+			int color = sc.nextInt();
+			int speed = sc.nextInt();
+			
+			Stage stage = new Stage(new Color(color), allPlatforms, speed);
+	        
+	        Score startscore = new Score(0);
+	        return new PlayWorld(dj, stage, startscore);
+			
+		} catch (FileNotFoundException e) {
+			System.out.println("Invalid level #: " + level);
+			e.printStackTrace();
+			System.exit(-1);
+		}
+
+		return null;  // should never get here
+    }
 
     
     public static PlayWorld buildLevel1() {
+    	return buildLevel(1, "nadeem");
+    	
+    	/*
     	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3, -3);
     	// LOL what if we made different doodlejumpers with different abilities
     	DoodleJumper ivan = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (150, 150, 0), 3, -4);
@@ -81,6 +132,7 @@ public class PlayWorld implements IWorld {
         
         Score startscore = new Score(0);
         return new PlayWorld(dj, stage1, startscore);
+        */
     }
     
     public static PlayWorld buildLevel2() {
@@ -132,8 +184,8 @@ public class PlayWorld implements IWorld {
         Platform p11 = new Platform(new Posn(2700, 400), 100, 20, new Color(65, 206, 93));
         Platform p12 = new Platform(new Posn(3200, 200), 100, 20, new Color(65, 206, 93));
 //        Platform[] lvl1 = {p1, p2, p3};
-        Stage stage1 = new Stage(new Color(42), new Platform[]{p1, p2, p3}, -1);
-        Stage stage2 = new Stage(new Color(42), new Platform[] {p1, p4, p5, p6, p7}, -2);
+       // Stage stage1 = new Stage(new Color(42), new Platform[]{p1, p2, p3}, -1);
+       // Stage stage2 = new Stage(new Color(42), new Platform[] {p1, p4, p5, p6, p7}, -2);
         Stage stage3 = new Stage(new Color(120, 0, 0), new Platform[] {p1, p4, p5, p6, p7, p8, p9, p10, p11, p12}, -2.5);
         
         Score startscore = new Score(0);
