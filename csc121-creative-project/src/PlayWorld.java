@@ -65,11 +65,13 @@ public class PlayWorld implements IWorld {
     	int platformCount = sc.nextInt();
 		Platform[] platforms = new Platform[platformCount];
 		for (int i = 0; i < platformCount; i++) {
+			// String label = sc.next();
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			int r = sc.nextInt();
 			int g = sc.nextInt();
 			int b = sc.nextInt();
+			// String[] nextLabels = sc.next().split(",");
 			Platform p = new Platform(new Posn(x, y), 100, 20, new Color(r, g, b));
 			platforms[i] = p;
 		}

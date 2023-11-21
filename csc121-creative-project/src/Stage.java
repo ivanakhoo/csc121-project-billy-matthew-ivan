@@ -6,7 +6,9 @@ import java.awt.Color;
 import processing.core.PApplet;
 public class Stage {
 	Color bkg;
-	Platform[] platforms;
+	Platform[] platforms;   // pattern of platforms to generate (potentially infinitely)
+	// ArrayList<Platform> livePlatforms;  // the actual platforms visible right now
+	
 	double speed;
 
 	public Stage(Color bkg, Platform[] platforms, double speed) {
