@@ -80,6 +80,10 @@ public class PlayWorld implements IWorld {
 		return platforms;
     }
     
+    private static ArrayList<Platform> readPattern(Scanner sc) {
+    	return null; //????
+    }
+    
     public static PlayWorld buildLevel(int level, String username) {
 		try {
 			
@@ -95,9 +99,9 @@ public class PlayWorld implements IWorld {
 			int r2 = sc.nextInt();
 			int r3 = sc.nextInt();
 			float speed = sc.nextFloat();
-	//		ArrayList<Platform> live = sc.next();
+			ArrayList<Platform> live = readPattern(sc);
 			
-			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, speed);
+			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, live, speed);
 	        
 	        Score startscore = new Score(0);
 	        return new PlayWorld(dj, stage, startscore);
