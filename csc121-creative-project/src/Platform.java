@@ -4,19 +4,23 @@ import processing.core.PApplet;
 
 /** Represents a platform that the DJ can jump off of*/
 public class Platform {
+	String label;
 	Posn p; // position of the top-left of the platform.
 	int width;
 	int height;
 	Color color;
+	String[] nextLabels;
 	
-	public Platform(Posn p, int width, int height, Color color) {
+	
+	public Platform(String label, Posn p, int width, int height, Color color, String[] nextLabels) {
+		this.label = label;
 		this.p = p;
 		this.width = width;
 		this.height = height;
 		this.color = color;
+		this.nextLabels = nextLabels;
 	}
-	
-	
+
 	// We can add an update function later, I think moving platforms would be cool
 //	public DoodleJumper update() {
 //		if(this.isMovingRight || this.isMovingLeft) {
@@ -43,7 +47,7 @@ public class Platform {
 	// Updates the platform's position
 	public Platform update(double speed) {
 		this.p.x += speed;
-		return new Platform(this.p, this.width, this.height, this.color);
+		return new Platform(this.label, this.p, this.width, this.height, this.color, this.nextLabels);
 	}
 	
 }

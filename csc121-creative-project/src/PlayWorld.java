@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import processing.core.PApplet;
@@ -65,14 +66,14 @@ public class PlayWorld implements IWorld {
     	int platformCount = sc.nextInt();
 		Platform[] platforms = new Platform[platformCount];
 		for (int i = 0; i < platformCount; i++) {
-			// String label = sc.next();
+			String label = sc.next();
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			int r = sc.nextInt();
 			int g = sc.nextInt();
 			int b = sc.nextInt();
-			// String[] nextLabels = sc.next().split(",");
-			Platform p = new Platform(new Posn(x, y), 100, 20, new Color(r, g, b));
+			String[] nextLabels = sc.next().split(",");
+			Platform p = new Platform(label, new Posn(x, y), 100, 20, new Color(r, g, b), nextLabels);
 			platforms[i] = p;
 		}
 		
@@ -94,6 +95,7 @@ public class PlayWorld implements IWorld {
 			int r2 = sc.nextInt();
 			int r3 = sc.nextInt();
 			float speed = sc.nextFloat();
+	//		ArrayList<Platform> live = sc.next();
 			
 			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, speed);
 	        
