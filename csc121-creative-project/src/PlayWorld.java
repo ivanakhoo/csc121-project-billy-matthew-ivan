@@ -101,7 +101,7 @@ public class PlayWorld implements IWorld {
 			float speed = sc.nextFloat();
 			ArrayList<Platform> live = readPattern(sc);
 			
-			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, live, speed);
+			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, speed, live);
 	        
 	        Score startscore = new Score(0);
 	        return new PlayWorld(dj, stage, startscore);

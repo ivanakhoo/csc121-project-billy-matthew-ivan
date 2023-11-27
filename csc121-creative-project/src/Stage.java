@@ -8,15 +8,15 @@ import processing.core.PApplet;
 public class Stage {
 	Color bkg;
 	Platform[] platforms;   // pattern of platforms to generate (potentially infinitely)
+	double speed;
 	ArrayList<Platform> livePlatforms;  // the actual platforms visible right now
 	
-	double speed;
-	
-	public Stage(Color bkg, Platform[] platforms, ArrayList<Platform> livePlatforms, double speed) {
+
+	public Stage(Color bkg, Platform[] platforms, double speed, ArrayList<Platform> livePlatforms) {
 		this.bkg = bkg;
 		this.platforms = platforms;
-		this.livePlatforms = livePlatforms;
 		this.speed = speed;
+		this.livePlatforms = livePlatforms;
 	}
 
 	public PApplet draw(PApplet c) {
@@ -32,7 +32,7 @@ public class Stage {
 		for(int i = 0; i < platforms.length; i++) {
 			platforms[i].update(this.speed);
 		}
-		return new Stage(this.bkg, this.platforms, this.livePlatforms, this.speed);
+		return new Stage(this.bkg, this.platforms, this.speed, this.livePlatforms);
 	}
 
 }
