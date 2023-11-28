@@ -66,23 +66,32 @@ public class PlayWorld implements IWorld {
     	int platformCount = sc.nextInt();
 		Platform[] platforms = new Platform[platformCount];
 		for (int i = 0; i < platformCount; i++) {
-			String label = sc.next();
 			int x = sc.nextInt();
 			int y = sc.nextInt();
 			int r = sc.nextInt();
 			int g = sc.nextInt();
 			int b = sc.nextInt();
-			String[] nextLabels = sc.next().split(",");
-			Platform p = new Platform(label, new Posn(x, y), 100, 20, new Color(r, g, b), nextLabels);
+			String[] nextStrs = sc.next().split(",");
+			int[] nextLabels = new int[nextStrs.length];
+			for (int j = 0; j < nextStrs.length; j++) { nextLabels[j] = Integer.parseInt(nextStrs[j]); }
+			
+			Platform p = new Platform(new Posn(x, y), 100, 20, new Color(r, g, b), nextLabels);
 			platforms[i] = p;
 		}
 		
 		return platforms;
     }
     
+    /*
     private static ArrayList<Platform> readPattern(Scanner sc) {
-    	return null; //????
+    	ArrayList<Platform> platforms = new ArrayList<Platform>();
+    	
+    	for (int i = 0; i < platforms.size(); i++) {
+    		
+    		String[] nexts = sc.next().split(",");
+    	}
     }
+    */
     
     public static PlayWorld buildLevel(int level, String username) {
 		try {
@@ -99,9 +108,8 @@ public class PlayWorld implements IWorld {
 			int r2 = sc.nextInt();
 			int r3 = sc.nextInt();
 			float speed = sc.nextFloat();
-			ArrayList<Platform> live = readPattern(sc);
 			
-			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, speed, live);
+			Stage stage = new Stage(new Color(r1, r2, r3), allPlatforms, speed);
 	        
 	        Score startscore = new Score(0);
 	        return new PlayWorld(dj, stage, startscore);

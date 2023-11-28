@@ -7,5 +7,10 @@ public class Posn {
 		this.x = x;
 		this.y = y;
 	}
+
+	@Override
+	public String toString() {
+		return "Posn [x=" + x + ", y=" + y + "]";
+	}
 	
 }
