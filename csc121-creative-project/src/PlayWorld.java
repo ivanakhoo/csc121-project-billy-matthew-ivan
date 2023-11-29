@@ -29,7 +29,7 @@ public class PlayWorld implements IWorld {
 //        dj.update();
         
         stage.draw(c);
-        c.fill(100, 0, 255, 100);
+        c.fill(258, 0, 255, 100);
         dj.draw(c);
         score.draw(c, dj);
         
@@ -103,7 +103,7 @@ public class PlayWorld implements IWorld {
 			
 			// TODO:   open a     "user-" + username + ".txt"  file and read user data from it to create the DoodleJumper.
 			//   make a new file if they're not already a user
-	    	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116), 3, -4);
+	    	DoodleJumper dj = new DoodleJumper(new Posn(100, 100), false, false, 0.1, 0, 0, new Color (206, 65, 116, 1), 3, -4);
 
 	    	String filename = "level" + level + ".txt";
 			Scanner sc = new Scanner(new File(filename));
