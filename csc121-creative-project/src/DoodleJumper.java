@@ -149,8 +149,8 @@ public class DoodleJumper {
 
 	// Checks collision for the list of platforms in the stage
 	public void collide(Stage stage) {
-		for(int i = 0; i < stage.platforms.length; i++) {
-			if(platformCollide(stage.platforms[i])) {
+		for(int i = 0; i < stage.livePlatforms.size(); i++) {
+			if(platformCollide(stage.livePlatforms.get(i))) {
 				//				return 0;
 				this.yVelocity = -3;
 				this.jumps = 3;

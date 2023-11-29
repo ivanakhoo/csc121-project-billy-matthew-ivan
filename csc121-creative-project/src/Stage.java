@@ -13,6 +13,7 @@ public class Stage {
 	ArrayList<Platform> livePlatforms;  // the actual platforms visible right now
 	
 
+	
 	public Stage(Color bkg, Platform[] platforms, double speed) {
 		this.bkg = bkg;
 		this.platforms = platforms;
@@ -49,7 +50,7 @@ public class Stage {
 		for(int i = 0; i < livePlatforms.size(); i++) {
 			livePlatforms.get(i).update(this.speed);
 		}
-		return new Stage(this.bkg, this.platforms, this.speed);
+		return this;   ///new Stage(this.bkg, this.platforms, this.speed);
 	}
 
 	@Override
