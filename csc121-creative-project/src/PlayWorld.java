@@ -27,9 +27,12 @@ public class PlayWorld implements IWorld {
         //        c.text("NoodleHump!", 20, 20);
 //        dj.collide(stage);
 //        dj.update();
-        dj.draw(c);
+        
         stage.draw(c);
+        c.fill(100, 0, 255, 100);
+        dj.draw(c);
         score.draw(c, dj);
+        
         
        // c.fill(0, 0, 255, 100);  // alpha = transparency
        // c.rect(0, 0, 800, 800);
