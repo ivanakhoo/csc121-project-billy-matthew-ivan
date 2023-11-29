@@ -85,14 +85,8 @@ public class DoodleJumper {
 			this.img = c1.loadImage("jumper.png");
 		}
 		
-		/*
-		 c1.pushMatrix();
-		c1.translate((float)this.p.x, (float)this.p.y);
-		c1.scale(.25f);
 		c1.imageMode(PApplet.CENTER);
-		c1.image(img,0, 0);
-		c1.popMatrix();
-		*/
+		c1.image(img, (float)this.p.x, (float)this.p.y);
 		
 		c1.fill(this.color.getRGB());
 		c1.rect((float)this.p.x, (float)this.p.y, (float)this.width, (float)this.height);

@@ -4,6 +4,7 @@
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 import processing.core.PApplet;
 public class Stage {
@@ -12,7 +13,8 @@ public class Stage {
 	double speed;
 	ArrayList<Platform> livePlatforms;  // the actual platforms visible right now, the last (right-most) should always be offscreen
 	
-
+	private static Random rgenerator = new Random();
+			// 		rgenerator.nextInt(n)   generates an integer between 0 and (n-1) inclusive
 	
 	public Stage(Color bkg, Platform[] platforms, double speed) {
 		this.bkg = bkg;
@@ -29,7 +31,7 @@ public class Stage {
 			Platform realP = new Platform(new Posn(curP.p.x + curX, curP.p.y), curP.width, curP.height, curP.color, curP.nextLabels);
 			this.livePlatforms.add(realP);
 			curX = curP.p.x + curX;
-			cur = curP.nextLabels[0];   // TODO:  cur = curP.nextLabels[   randomnumberbetweewn 0 and length of curP.nextLabel ];
+			cur = curP.nextLabels[0];   // TODO:  cur = curP.nextLabels[   randomnumberbetweewn 0 and length of curP.nextLabels.length ];
 			
 			if (curX > DoodleApp.WIDTH) { done = true; }
 		}
