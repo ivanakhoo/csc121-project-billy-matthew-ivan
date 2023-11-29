@@ -64,7 +64,7 @@ public class PlayWorld implements IWorld {
     
     private static Platform[] readAllPlatforms(Scanner sc) {
     	int platformCount = sc.nextInt();
-    	System.out.println(platformCount);
+    	//System.out.println(platformCount);
 		Platform[] platforms = new Platform[platformCount];
 		for (int i = 0; i < platformCount; i++) {
 			int x = sc.nextInt();
@@ -77,7 +77,7 @@ public class PlayWorld implements IWorld {
 			for (int j = 0; j < nextStrs.length; j++) { nextLabels[j] = Integer.parseInt(nextStrs[j]); }
 			
 			Platform p = new Platform(new Posn(x, y), 100, 20, new Color(r, g, b), nextLabels);
-			System.out.println("Made " + p);
+			//System.out.println("Made " + p);
 			platforms[i] = p;
 		}
 		

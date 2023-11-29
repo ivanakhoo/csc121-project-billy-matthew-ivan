@@ -54,5 +54,17 @@ public class Platform {
 		return "Platform [p=" + p + ", width=" + width + ", height=" + height + ", color=" + color + ", nextLabels="
 				+ Arrays.toString(nextLabels) + "]";
 	}
+
+	
+	
+	
+	public boolean isOffscreen() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isOnscreen() {
+		return 0 < this.p.x  && this.p.x < DoodleApp.WIDTH;
+	}
 	
 }

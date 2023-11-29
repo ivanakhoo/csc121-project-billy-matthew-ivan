@@ -10,7 +10,7 @@ public class Stage {
 	Color bkg;
 	Platform[] platforms;   // pattern of platforms to generate (potentially infinitely)
 	double speed;
-	ArrayList<Platform> livePlatforms;  // the actual platforms visible right now
+	ArrayList<Platform> livePlatforms;  // the actual platforms visible right now, the last (right-most) should always be offscreen
 	
 
 	
@@ -29,7 +29,7 @@ public class Stage {
 			Platform realP = new Platform(new Posn(curP.p.x + curX, curP.p.y), curP.width, curP.height, curP.color, curP.nextLabels);
 			this.livePlatforms.add(realP);
 			curX = curP.p.x + curX;
-			cur = curP.nextLabels[0];   // cur = curP.nextLabels[   randomnumberbetweewn 0 and length of curP.nextLabel ];
+			cur = curP.nextLabels[0];   // TODO:  cur = curP.nextLabels[   randomnumberbetweewn 0 and length of curP.nextLabel ];
 			
 			if (curX > DoodleApp.WIDTH) { done = true; }
 		}
@@ -50,6 +50,21 @@ public class Stage {
 		for(int i = 0; i < livePlatforms.size(); i++) {
 			livePlatforms.get(i).update(this.speed);
 		}
+		
+		Platform last = livePlatforms.get(livePlatforms.size() - 1);
+		
+		if (livePlatforms.get(0).isOffscreen()) {  // if the first platform (left-most) has gone off screen, remove it
+			livePlatforms.remove(0);
+		}
+		
+		if (last.isOnscreen()) { // if the last platform has come on screen
+			// need to generate a new offscreen one
+			int next = last.nextLabels[0];    // TODO: should really be a randomly chosen next label
+			Platform nextP = platforms[next];
+			Platform realP = new Platform(new Posn(nextP.p.x + last.p.x, nextP.p.y), nextP.width, nextP.height, nextP.color, nextP.nextLabels);
+			this.livePlatforms.add(realP);
+		}
+		
 		return this;   ///new Stage(this.bkg, this.platforms, this.speed);
 	}
 
