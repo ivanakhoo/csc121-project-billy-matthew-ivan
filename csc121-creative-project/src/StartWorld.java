@@ -28,12 +28,14 @@ public class StartWorld implements IWorld {
 	@Override
 	public IWorld keyPressed(KeyEvent kev) {
 		if (kev.getKey() == '1') {
-			String name = javax.swing.JOptionPane.showInputDialog("Please enter your name"); 
-			return PlayWorld.buildLevel(1, name);
+			String name1 = javax.swing.JOptionPane.showInputDialog("Please enter your name"); 
+			return PlayWorld.buildLevel(1, name1);
 		} else if (kev.getKey() == '2' ) {
-			return PlayWorld.buildLevel2();
+			String name2 = javax.swing.JOptionPane.showInputDialog("Please enter your name");
+			return PlayWorld.buildLevel(2, name2);
 		} else if (kev.getKey() == '3' ) {
-			return PlayWorld.buildLevel3();
+			String name3 = javax.swing.JOptionPane.showInputDialog("Please enter your name");
+			return PlayWorld.buildLevel(3, name3);
 		} else {
 			return this;
 		}

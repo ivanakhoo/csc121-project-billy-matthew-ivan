@@ -37,7 +37,8 @@ public class PauseWorld implements IWorld {
 			return paused;
 			//return PlayWorld.buildLevel1(); // need to find a way to pause game and reenter.
 		} else if (kev.getKey() == 'r') {
-			return PlayWorld.buildLevel1(); // this needs to return the same level we were on
+			String nameRestart = javax.swing.JOptionPane.showInputDialog("Please enter your name");
+			return PlayWorld.buildLevel(1, nameRestart); // this needs to return the same level we were on
 		} else if (kev.getKey() == 'q') {
 			return new StartWorld(); 
 		} else {
