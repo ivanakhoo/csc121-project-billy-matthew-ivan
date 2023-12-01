@@ -8,6 +8,7 @@ public class GameOverWorld implements IWorld {
 		c.background(0);
 		c.fill(255, 0, 0);
 		c.textSize(30);
+		c.text("Score: " + (Score.scoredigits/50), 340, 350);
 		c.text("Game Over :(", 320, 400);
 		c.textSize(20);
 		c.text("Press Spacebar To Play Again", 290, 450);

@@ -61,7 +61,8 @@ public class Stage {
 		
 		if (last.isOnscreen()) { // if the last platform has come on screen
 			// need to generate a new offscreen one
-			int next = last.nextLabels[0];    // TODO: should really be a randomly chosen next label
+//			int next = last.nextLabels[0];    // TODO: should really be a randomly chosen next label
+			int next = last.nextLabels[rgenerator.nextInt(last.nextLabels.length)];
 			Platform nextP = platforms[next];
 			Platform realP = new Platform(new Posn(nextP.p.x + last.p.x, nextP.p.y), nextP.width, nextP.height, nextP.color, nextP.nextLabels);
 			this.livePlatforms.add(realP);

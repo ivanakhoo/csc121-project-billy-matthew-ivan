@@ -3,7 +3,7 @@ import java.awt.Color;
 import processing.core.PApplet;
 //Game
 public class Score {
-	int scoredigits;
+	static int scoredigits;
 	///String text;
 	
 	public Score(int scoredigits) {

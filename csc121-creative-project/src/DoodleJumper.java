@@ -38,7 +38,7 @@ public class DoodleJumper {
 		this.xSpeed = 2;
 
 		this.width = 20;
-		this.height = 30;
+		this.height = 40;
 
 		this.jumpvelo = jumpvelo;
 
@@ -86,7 +86,7 @@ public class DoodleJumper {
 		}
 		
 		c1.imageMode(PApplet.CENTER);
-		c1.image(img, (float)this.p.x, (float)this.p.y);
+		c1.image(img, (float)(this.p.x+ (this.width/2)), (float)(this.p.y+ (this.height/2)));
 		
 		c1.fill(this.color.getRGB());
 		c1.rect((float)this.p.x, (float)this.p.y, (float)this.width, (float)this.height);
