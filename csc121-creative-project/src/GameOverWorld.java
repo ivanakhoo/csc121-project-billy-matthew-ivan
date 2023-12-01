@@ -26,7 +26,7 @@ public class GameOverWorld implements IWorld {
 	public IWorld keyPressed(KeyEvent kev) {
 		if (kev.getKey() == ' ') {
 			String nameOver = javax.swing.JOptionPane.showInputDialog("Please enter your name");
-			return PlayWorld.buildLevel(1, nameOver);
+			return PlayWorld.buildLevel(3, nameOver);
 		} else if (kev.getKey() == 'r') {
 			return new StartWorld(); 
 		} else {
